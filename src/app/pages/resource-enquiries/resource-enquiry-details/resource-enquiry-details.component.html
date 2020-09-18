@@ -1,0 +1,37 @@
+<button class="btn btn-primary" type="button" (click)="location.back()" style="margin-bottom: 4px;"><i class="fa fa-arrow-left"></i> Back</button>
+<div class="tab-panel">
+    <tabset class="member-tabset">
+      <tab heading="Description" id="tab1">
+        <h5>Enquiry Id:</h5>
+        <p>{{enquiryData['enquiryId']}}</p>
+        <h5>Resource Id:</h5>
+        <p>{{enquiryData['resourceId']}}</p>
+        <h5>Organization Name:</h5>
+        <p>{{enquiryData['organizationName']}}</p>
+        <h5>Date:</h5>
+        <p>{{enquiryData['date']}}</p>
+        <div *ngIf="!changeStatusInput">
+          <h5>Enquiry Status:</h5>
+          <p>{{enquiryData['enquiryStatus']}}</p>
+        </div>
+        <div *ngIf="changeStatusInput">
+          <h5>Enquiry Status:</h5>
+          <select class="custom-select mr-sm-2" id="statusInput" [(ngModel)]="statusInput" placeholder="Choose...">
+            <option value="Pending">Pending</option>
+            <option value="Allotted">Allotted</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+          <button type="button" class="btn btn-primary" style="margin:5px;" (click)="changeStatus()">Change</button>
+          <button type="button" class="btn btn-danger" style="margin:5px;" (click)="changeStatusBoolean()">Cancel</button>
+        </div>
+        <button *ngIf="!changeStatusInput" type="button" class="btn btn-primary" style="margin:5px;" (click)="changeStatusBoolean()">Change Status</button>
+
+      </tab>
+      <tab heading="Contact">
+        <h5>Email:</h5>
+        <p>{{enquiryData['email']}}</p>
+        <h5>Contact:</h5>
+        <p>{{enquiryData['contact']}}</p>
+      </tab>
+    </tabset>
+  </div>
