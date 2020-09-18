@@ -3,6 +3,7 @@ import { ResourceEnquiry } from 'src/app/models/resource-enquiry';
 import { PaginatedResult, Pagination } from 'src/app/models/pagination';
 import { ResourceEnquiryService } from 'src/app/services/resourceEnquiry/resource-enquiry.service';
 import { Summary } from '../../models/summary';
+import { AuthenticationServiceService } from 'src/app/services/authentication/authentication-service.service';
 
 @Component({
   selector: 'app-resource-enquiries',
@@ -16,8 +17,9 @@ export class ResourceEnquiriesComponent implements OnInit {
   orderByList = [{value: 'ascending', display: 'Date Asc.'}, {value: 'descending', display: 'Date Des.'}];
   userParams: any = {};
   summaryData: any = {};
+  public role: number;
 
-  constructor(private resourceEnquiryService: ResourceEnquiryService) {
+  constructor(public authService: AuthenticationServiceService, private resourceEnquiryService: ResourceEnquiryService) {
     this.pagination = {
       TotalCount: 0,
       PageSize: 2,
@@ -39,6 +41,8 @@ export class ResourceEnquiriesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.role = this.authService.getRoleId();
+
     this.resourceEnquiryService.getSummary().subscribe((data) => {
       this.summaryData = data;
     });

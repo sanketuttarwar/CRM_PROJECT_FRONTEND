@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { AlertifyService } from 'src/app/services/alertify/alertify.service';
 import { ResourceEnquiry } from 'src/app/models/resource-enquiry';
 import { updateLocale } from 'ngx-bootstrap/chronos';
+import { AuthenticationServiceService } from 'src/app/services/authentication/authentication-service.service';
 
 @Component({
   selector: 'app-resource-enquiry-details',
@@ -15,11 +16,14 @@ export class ResourceEnquiryDetailsComponent implements OnInit {
   statusInput: string;
   changeStatusInput: boolean = false;
   enquiryData: ResourceEnquiry;
+  role: number;
 
-  constructor(public resourceEnquiryService: ResourceEnquiryService, private route: ActivatedRoute, public alertifyService: AlertifyService, public location: Location) { 
+  constructor(public authService: AuthenticationServiceService, public resourceEnquiryService: ResourceEnquiryService, private route: ActivatedRoute, public alertifyService: AlertifyService, public location: Location) { 
   }
 
   ngOnInit(){
+    this.role = this.authService.getRoleId();
+
     this.route.data.subscribe((data) => {
       this.enquiryData = data.resourceEnquiry;
     });
