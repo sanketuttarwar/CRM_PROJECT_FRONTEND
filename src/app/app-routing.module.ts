@@ -11,7 +11,8 @@ import { ResourceEnquiriesPieComponent } from './pages/resource-enquiries/resour
 import { CourseEnquiriesComponent } from './pages/course-enquiries/course-enquiries.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
-
+import { ResourceDetailsComponent } from './pages/resources/resource-details/resource-details.component';
+import {ResourceResolverService} from '../app/pages/resources/resource-resolver/resource-resolver.service';
 const routes: Routes = [
   {
     path: 'login',
@@ -47,7 +48,17 @@ const routes: Routes = [
         path: 'resources',
         component: ResourcesComponent,
       },
+      {
+        path:'resources/new',
+        component:ResourceDetailsComponent
+      },
 
+      {
+        path:'resources/:id',
+        component:ResourceDetailsComponent,
+        resolve:{resource:ResourceResolverService}
+      },
+      
       {
         path: 'courses',
         component: CoursesComponent,
