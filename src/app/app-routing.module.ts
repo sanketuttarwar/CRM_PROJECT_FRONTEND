@@ -14,6 +14,8 @@ import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { CourseEnquiryDetailsComponent } from './pages/course-enquiries/course-enquiry-details/course-enquiry-details.component';
 import { EnquiryFormComponent } from './pages/course-enquiries/enquiry-form/enquiry-form.component';
 
+import { ResourceDetailsComponent } from './pages/resources/resource-details/resource-details.component';
+import {ResourceResolverService} from '../app/pages/resources/resource-resolver/resource-resolver.service';
 const routes: Routes = [
   {
     path: 'login',
@@ -55,6 +57,16 @@ const routes: Routes = [
       {
         path: 'resources',
         component: ResourcesComponent,
+      },
+      {
+        path:'resources/new',
+        component:ResourceDetailsComponent
+      },
+
+      {
+        path:'resources/:id',
+        component:ResourceDetailsComponent,
+        resolve:{resource:ResourceResolverService}
       },
 
       {
