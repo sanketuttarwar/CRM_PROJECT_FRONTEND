@@ -29,12 +29,9 @@ import { AuthenticationServiceService } from './services/authentication/authenti
 import { AlertifyService } from './services/alertify/alertify.service';
 import { ResourceEnquiryService } from './services/resourceEnquiry/resource-enquiry.service';
 import { CourseEnquiriesComponent } from './pages/course-enquiries/course-enquiries.component';
-<<<<<<< HEAD
 import { CourseEnquiryDetailsComponent } from './pages/course-enquiries/course-enquiry-details/course-enquiry-details.component';
 import { EnquiryFormComponent } from './pages/course-enquiries/enquiry-form/enquiry-form.component';
-=======
 import { ResourceDetailsComponent } from './pages/resources/resource-details/resource-details.component';
->>>>>>> 37ed937cd8502af29162298984398ce02694c016
 
 @NgModule({
   declarations: [
@@ -49,12 +46,9 @@ import { ResourceDetailsComponent } from './pages/resources/resource-details/res
     ResourceEnquiryDetailsComponent,
     ResourceEnquiriesPieComponent,
     CourseEnquiriesComponent,
-<<<<<<< HEAD
     CourseEnquiryDetailsComponent,
     EnquiryFormComponent,
-=======
     ResourceDetailsComponent,
->>>>>>> 37ed937cd8502af29162298984398ce02694c016
   ],
   imports: [
     BrowserModule,
