@@ -1,0 +1,66 @@
+<div class="container" *ngIf="courseEnquiry">
+  <div class="row justify-content-center">
+
+    <!-- <div class="col-md-8 mb-2">
+  <button class="btn btn-warning mb-3 float-right" (click)="onChangeStatus()">Change Status!</button>
+    </div> -->
+
+
+
+    <div class="col-md-8 shadow p-3 mr-2 mb-5 bg-white rounded" style=" line-height: 300%;">
+      <div class="row text-success">
+        <div class="col-md-6"> <strong>Enquiry ID:</strong> {{courseEnquiry.enquiryId}}</div>
+        <div class="col-md-6"> <strong>Course ID:</strong> {{courseEnquiry.courseId}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"> <strong>Date of Enquiry:</strong> {{courseEnquiry.date |  date:"MM/dd/yy"}}</div>
+        <div class="col-md-6"> <strong>Name:</strong> {{courseEnquiry.name}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"> <strong>Contact:</strong> {{courseEnquiry.contact}}</div>
+        <div class="col-md-6"> <strong>Email_ID:</strong> {{courseEnquiry.email}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"> <strong>Date Of Birth:</strong> {{courseEnquiry.dob |  date:"MM/dd/yy"}}</div>
+        <div class="col-md-6"> <strong>Degree:</strong> {{courseEnquiry.degree}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"> <strong>Percentage:</strong> {{courseEnquiry.percentage}}</div>
+        <div class="col-md-6"> <strong>Degree Year:</strong> {{courseEnquiry.degreeYear}}</div>
+      </div>
+
+      <div class="row text-danger">
+        <div class="col-md-6"> <strong>Status:</strong> {{courseEnquiry.enquiryStatus}}</div>
+        <div class="col-md-6"> <strong>Last Modified On:</strong> {{courseEnquiry.lastModifiedOn |  date:"MM/dd/yy"}}</div>
+      </div>
+
+<hr>
+      <div class="row">
+        <div class="col-md-6"> <button class="btn btn-danger" (click)="onBack()">Back</button></div>
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+      <form #f="ngForm" (ngSubmit)="onChangeStatus(f)">
+        <div class="form-group">
+          <label for="status"><strong>Change Status!</strong></label>
+          <select id="status" class="form-control" name="status" ngModel required>
+            <option>Pending</option>
+            <option>Selected</option>
+            <option>Admitted</option>
+            <option>Rejected</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-block btn-warning mb-3 float-right" type="submit" [disabled]="f.invalid">Click to Change!</button>
+        </div>
+      </form>
+     </div>
+  </div>
+</div>

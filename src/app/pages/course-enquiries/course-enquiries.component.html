@@ -12,7 +12,7 @@
 
   <div class="row">
     <table class="table table-borderless shadow p-3 mb-5 bg-white rounded">
-      <thead style="background-color:#e3bbdd;">
+      <thead class="bg-dark">
         <tr >
           <th scope="col">Enquiry ID</th>
           <th scope="col">Name</th>
@@ -28,7 +28,9 @@
           <td>{{item.enquiryId}}</td>
           <td>{{item.name}}</td>
           <td>{{item.contact}}</td>
-          <td><span>{{item.enquiryStatus}}</span></td>
+          <td
+          [class]="item.enquiryStatus == 'Pending' ? 'text-danger': 'text-primary'"
+          ><span>{{item.enquiryStatus}} !</span></td>
           <td>{{item.date |  date:"MM/dd/yy"}}</td>
           <td><button class="btn btn-outline-success" (click)="onSeeDetails(item.enquiryId)">See Details</button></td>
         </tr>
