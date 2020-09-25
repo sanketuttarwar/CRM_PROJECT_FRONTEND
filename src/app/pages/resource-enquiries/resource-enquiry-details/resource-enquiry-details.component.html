@@ -14,7 +14,7 @@
           <h5>Enquiry Status:</h5>
           <p>{{enquiryData['enquiryStatus']}}</p>
         </div>
-        <div *ngIf="role == 1">
+        <div *ngIf="role == 2">
           <div *ngIf="changeStatusInput">
             <h5>Enquiry Status:</h5>
             <select class="custom-select mr-sm-2" id="statusInput" [(ngModel)]="statusInput" placeholder="Choose...">

@@ -29,6 +29,8 @@ import { AuthenticationServiceService } from './services/authentication/authenti
 import { AlertifyService } from './services/alertify/alertify.service';
 import { ResourceEnquiryService } from './services/resourceEnquiry/resource-enquiry.service';
 import { CourseEnquiriesComponent } from './pages/course-enquiries/course-enquiries.component';
+import { CourseEnquiryDetailsComponent } from './pages/course-enquiries/course-enquiry-details/course-enquiry-details.component';
+import { EnquiryFormComponent } from './pages/course-enquiries/enquiry-form/enquiry-form.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { CourseEnquiriesComponent } from './pages/course-enquiries/course-enquir
     ResourceEnquiryDetailsComponent,
     ResourceEnquiriesPieComponent,
     CourseEnquiriesComponent,
+    CourseEnquiryDetailsComponent,
+    EnquiryFormComponent,
   ],
   imports: [
     BrowserModule,

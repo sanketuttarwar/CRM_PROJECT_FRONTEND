@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {CourseEnquiryService} from '../../services/courseEnquiry/course-enquiry.service';
 
 @Component({
   selector: 'app-course-enquiries',
@@ -6,10 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-enquiries.component.css']
 })
 export class CourseEnquiriesComponent implements OnInit {
+  list: any;
 
-  constructor() { }
+  constructor(public service: CourseEnquiryService, public router: Router) { }
 
   ngOnInit(): void {
+    this.getList();
+  }
+
+  getList(){
+    this.service.getCourseEnquiries().subscribe(
+      (res) => {
+       this.list = res;
+       console.log(res);
+      }
+    );
+  }
+
+  onSeeDetails(id: number){
+     this.router.navigate(['courseEnquiries/'+id]);
+  }
+
+  onCreateEnquiry(){
+    this.router.navigate(['courseEnquiries/enquiryForm']);
   }
 
 }

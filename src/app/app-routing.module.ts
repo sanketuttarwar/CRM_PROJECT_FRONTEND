@@ -11,6 +11,8 @@ import { ResourceEnquiriesPieComponent } from './pages/resource-enquiries/resour
 import { CourseEnquiriesComponent } from './pages/course-enquiries/course-enquiries.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { CourseEnquiryDetailsComponent } from './pages/course-enquiries/course-enquiry-details/course-enquiry-details.component';
+import { EnquiryFormComponent } from './pages/course-enquiries/enquiry-form/enquiry-form.component';
 
 const routes: Routes = [
   {
@@ -41,7 +43,14 @@ const routes: Routes = [
         path: 'courseEnquiries',
         component: CourseEnquiriesComponent,
       },
-
+      {
+        path: 'courseEnquiries/enquiryForm',
+        component: EnquiryFormComponent,
+      },
+      {
+        path: 'courseEnquiries/:id',
+        component: CourseEnquiryDetailsComponent,
+      },
 
       {
         path: 'resources',
