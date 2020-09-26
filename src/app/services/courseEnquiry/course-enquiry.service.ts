@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {CourseEnquiry} from 'src/app/models/course-enquiry.model';
 
 
 
@@ -27,8 +28,23 @@ export class CourseEnquiryService {
       map(res => {
         return res;
       })
-    )
-  };
+    );
+  }
+
+  getCourses(): Observable<any>{
+    return this.http.get(this.baseUrl + 'CourseManagement').pipe(
+      map(res => {
+        return res;
+      })
+    );
+  }
+
+  createCourseEnquiry(newEnquiry: CourseEnquiry): Observable<any>{
+     return this.http.post(this.baseUrl+'CourseEnquiries', newEnquiry).pipe(
+       map(res => {return res;})
+     );
+  }
+
 
   changeStatus(id: number, enquiry: any): Observable<any>{
     console.log(enquiry.enquiryStatus);
